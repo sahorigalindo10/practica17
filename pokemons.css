@@ -1,0 +1,207 @@
+.pokedex {
+  /* Se asegura de que el fondo se vea bien en pantallas grandes y pequeñas. */
+
+  width: 100%;
+  padding: 48px 32px 56px;
+  box-sizing: border-box;
+  background:
+    radial-gradient(ellipse at 50% 0, rgba(255, 215, 91, 0.2), transparent 42%),
+    var(--bg);
+}
+
+.pokedex__header {
+  /* Mantiene el contenido centrado y con un ancho máximo para mejorar la legibilidad. */
+  max-width: 720px;
+  margin: 0 auto 36px;
+}
+
+.pokedex__eyebrow {
+  /* Mejora la visibilidad del texto en pantallas pequeñas y grandes. */
+  margin-bottom: 8px;
+  color: #d64d45;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.pokedex__header h1 {
+  /* Ajusta el tamaño del encabezado para que sea legible en dispositivos móviles y de escritorio. */
+  margin: 0 0 12px;
+}
+
+.pokedex__intro {
+  margin-bottom: 24px;
+}
+
+.pokedex__search {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pokedex__search input {
+  width: min(100%, 340px);
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-h);
+  background: var(--bg);
+  font: inherit;
+}
+
+.pokedex__search button,
+.pokedex__pagination button,
+.pokedex__message button {
+  min-height: 44px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 10px;
+  color: #fff;
+  background: #d64d45;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pokedex__search .pokedex__clear {
+  color: var(--text-h);
+  background: var(--accent-bg);
+}
+
+.pokemon-grid {
+  /* Mantiene las tarjetas adaptables sin perder legibilidad en pantallas pequeñas. */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 1040px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.pokemon-card {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--bg);
+  box-shadow: var(--shadow);
+  transition: transform 160ms ease;
+}
+
+.pokemon-card:hover {
+  transform: translateY(-4px);
+}
+
+.pokemon-card__image {
+  display: grid;
+  min-height: 190px;
+  place-items: center;
+  background: linear-gradient(145deg, #fff5d8, #fff);
+}
+
+.pokemon-card__image img {
+  width: 170px;
+  height: 170px;
+  object-fit: contain;
+}
+
+.pokemon-card__details {
+  padding: 18px;
+}
+
+.pokemon-card__number {
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.pokemon-card__details h2 {
+  margin: 2px 0 12px;
+  color: var(--text-h);
+  font-size: 22px;
+  text-transform: capitalize;
+}
+
+.pokemon-card__types {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pokemon-type {
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: #77453f;
+  background: #ffe7b0;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.pokemon-card__measurements {
+  margin-top: 14px;
+  color: var(--text);
+  font-size: 13px;
+}
+
+.pokedex__status,
+.pokedex__message {
+  max-width: 600px;
+  margin: 32px auto;
+  text-align: center;
+}
+
+.pokedex__message {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+}
+
+.pokedex__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 32px;
+}
+
+.pokedex__pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+@media (max-width: 600px) {
+  .pokedex {
+    padding: 32px 18px 40px;
+  }
+
+  .pokemon-grid {
+    grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+    gap: 12px;
+  }
+
+  .pokemon-card__image {
+    min-height: 150px;
+  }
+
+  .pokemon-card__image img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .pokemon-card__details {
+    padding: 14px;
+  }
+}
